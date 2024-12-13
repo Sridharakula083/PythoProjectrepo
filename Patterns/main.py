@@ -1,71 +1,290 @@
-class BST:
-    def __init__(self,key):
-        self.key = key
-        self.lnode = None
-        self.rnode = None
-    def insert(self,data):
-        if self.key == None:
-            self.key = data
-            return
-        if self.key == data:
-            return
-        if self.key > data:
-            if self.lnode:
-                self.lnode.insert(data)
-            else:
-                self.lnode = BST(data)
-        else:
-            if self.rnode:
-                self.rnode.insert(data)
-            else:
-                self.rnode = BST(data)
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#   print((str(n-i)+ ' ')*n)
+# 3 3 3
+# 2 2 2
+# 1 1 1
 
-    def search(self,data):
-        if self.key == data:
-            print("Data Found")
-            return
-        if data < self.key:
-            if self.lnode:
-                self.lnode.search(data)
-            else:
-                print("Data doesnot exist..")
-        else:
-            if self.rnode:
-                self.rnode.search(data)
-            else:
-                print("Data doesnot exist")
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print((chr(64+n-i)+ ' ')*n)
+#C C C
+#B B B
+#A A A
 
-    def preorder(self):
-        print(self.key,end=" -> ")
-        if self.lnode:
-            self.lnode.preorder()
-        if self.rnode:
-            self.rnode.preorder()
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    for j in range(n):
+#        print(n-j,end=" ")
+#    print()
+#4 3 2 1
+#4 3 2 1
+#4 3 2 1
+#4 3 2 1
 
-    def inorder(self):
-        if self.lnode:
-            self.lnode.inorder()
-        print(self.key,end=" -> ")
-        if self.rnode:
-            self.rnode.inorder()
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    for j in range(n):
+#        print(chr(64+n-j),end=" ")
+#    print()
+#D C B A
+#D C B A
+#D C B A
+#D C B A
 
-    def postorder(self):
-        if self.lnode:
-            self.lnode.postorder()
-        if self.rnode:
-            self.rnode.postorder()
-        print(self.key,end=" -> ")
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print((i+1)*(' * '))
+#*
+#*  *
+#*  *  *
+#*  *  *  *
+#*  *  *  *  *
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print((i+1)*(str(i+1)+' '))
+#1
+#2 2
+#3 3 3
+#4 4 4 4
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print((i+1)*(chr(65+i)+' '))
+#A
+#B B
+#C C C
+#D D D D
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    for j in range(i+1):
+#        print(j+1,end=" ")
+#    print()
+#1
+#1 2
+#1 2 3
+#1 2 3 4
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    for j in range(i+1):
+#         print(chr(65+j),end=" ")
+#    print()
+#A
+#A B
+#A B C
+#A B C D
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print("* "*(n-i))
+#* * * *
+#* * *
+#* *
+#*
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*i+'* '*(n-i))
+#* * * *
+# * * *
+#  * *
+#   *
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*i+(str(i+1)+' ')*(n-i))
+#1 1 1 1
+# 2 2 2
+#  3 3
+#   4
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*i+(chr(65+i)+' ')*(n-i))
+#A A A A
+# B B B
+#  C C
+#   D
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*i,end='')
+#    for j in range(n-i):
+#        print(j+1,end=' ')
+#    print()
+#1 2 3 4
+# 1 2 3
+#  1 2
+#   1
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*i,end='')
+#    for j in range(n-i):
+#        print(j+1,end=' ')
+#1 2 3 4  1 2 3   1 2    1
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*i,end='')
+#    for j in range(n-i):
+#        print(chr(65+j),end=' ')
+#    print()
+#A B C D
+# A B C
+#  A B
+#   A
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*i,end='')
+#    for j in range(n-i):
+#        print(n-j,end=' ')
+#    print()
+#4 3 2 1
+# 4 3 2
+#  4 3
+#   4
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*i,end='')
+#    for j in range(n-i):
+#        print(chr(64+n-j),end=' ')
+#    print()
+#D C B A
+# D C B
+#  D C
+#   D
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*(n-i-1)+'* '*(i+1))
+#for i in range(n-1):
+#    print(' '*(i+1)+'* '*(n-i-1))
+#   *
+#  * *
+# * * *
+#* * * *
+# * * *
+#  * *
+#   *
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*(n-i-1)+(str(i+1)+' ')*(i+1))
+#for i in range(n-1):
+#    print(' '*(i+1)+(str(n-i-1)+' ')*(n-i-1))
+#   1
+#  2 2
+# 3 3 3
+#4 4 4 4
+# 3 3 3
+#  2 2
+#   1
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print(' '*(n-i-1),end=" ")
+#    for j in range(i+1):
+#        print((j+1),end=" ")
+#    print()
+#for i in range(n-1):
+#    print(' '*(i+1),end=" ")
+#    for j in range(n-i-1):
+#        print((j+1),end=" ")
+#    print()
+#    1
+#   1 2
+#  1 2 3
+# 1 2 3 4
+#  1 2 3
+#   1 2
+#    1
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print("* "*(i+1))
+#for i in range(n-1):
+#    print("* "*(n-i-1))
+#*
+#* *
+#* * *
+#* * * *
+#* * *
+#* *
+#*
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print((str(i+1)+' ')*(i+1))
+#for i in range(n-1):
+#    print((str(n-i-1)+' ')*(n-i-1))
+#1
+#2 2
+#3 3 3
+#4 4 4 4
+#3 3 3
+#2 2
+#1
+
+#for i in range(n):
+#    print((chr(65+i)+' ')*(i+1))
+#for i in range(n-1):
+#    print((chr(63+n-i)+' ')*(n-i-1))
+#A
+#B B
+#C C C
+#D D D D
+#C C C
+#B B
+#A
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    for j in range(i+1):
+#        print(j+1,end=' ')
+#    print()
+#for i in range(n-1):
+#    for j in range(n-i-1):
+#        print(j+1,end=' ')
+#    print()
+#1
+#1 2
+#1 2 3
+#1 2 3 4
+#1 2 3
+#1 2
+#1
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print('  '*(n-i-1)+"* "*(i+1))
+#for i in range(n-1):
+#    print('  '*(i+1)+"* "*(n-i-1))
+#      *
+#    * *
+#  * * *
+#* * * *
+#  * * *
+#    * *
+#      *
+
+#n = int(input("Enter no of rows"))
+#for i in range(n):
+#    print('  '*(n-i-1)+(str(i+1)+' ')*(i+1))
+#for i in range(n-1):
+#    print('  '*(i+1)+(str(n-i-1)+' ')*(n-i-1))
+#      1
+#    2 2
+#  3 3 3
+#4 4 4 4
+#  3 3 3
+#    2 2
+#      1
 
 
-root = BST(20)
-list = [2,5,18,4,12]
-for i in list:
-    root.insert(i)
-print("Pre-Order")
-root.preorder()
-print()
-print("In-Order")
-root.inorder()
-print()
-print("Post-Order")
-root.postorder()
+
